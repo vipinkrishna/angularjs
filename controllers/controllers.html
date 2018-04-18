@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Document</title>
+    <script src='./angular.min.js'></script>
+    <script>
+        var mymodule = angular.module("myapp", []);
+        mymodule.controller("mycontroller", ['$scope', function ($scope) {
+            $scope.names = ['india', 'srilanka', 'england', 'japan'];
+        }]);
+
+        mymodule.controller("mycontrollernew", function ($scope) {
+            $scope.names = ['aaa', 'bbb', 'ccc', 'ddd'];
+        });
+    </script>
+</head>
+
+<body ng-app="myapp">
+    <div ng-controller="mycontroller">
+        <ul>
+            <li ng-repeat="name in names">{{name}}</li>
+        </ul>
+    </div>
+
+    <div ng-controller="mycontrollernew">
+        <ul>
+            <li ng-repeat="name in names">{{name}}</li>
+        </ul>
+    </div>
+
+</body>
+
+</html>
