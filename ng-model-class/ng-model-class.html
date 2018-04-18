@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Document</title>
+    <script src='./angular.min.js'></script>
+    <style>
+        .red {background-color: red}
+        .green {background-color: green}
+    </style>
+</head>
+
+<body ng-app class="{{color}}">
+    <select ng-model="color">
+        <option value="red">red</option>
+        <option value="green">green</option>
+    </select>
+</body>
+
+</html>
