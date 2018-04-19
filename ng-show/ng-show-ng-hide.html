@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Document</title>
+    <script src='./angular.min.js'></script>
+    <script>
+        var mymodule = angular.module("myapp", []);
+
+        mymodule.controller("mycontroller", function ($scope) {
+            $scope.ninjas = [
+                { name: 'yoshi', available: true },
+                { name: 'yahi', available: false },
+                { name: 'chua', available: false },
+                { name: 'mao', available: true }
+            ];
+        });
+
+    </script>
+</head>
+
+<body ng-app="myapp">
+    <div ng-controller="mycontroller">
+        <ul>
+            <li ng-repeat="ninja in ninjas" ng-show="ninja.available">{{ninja.name}}</li>
+        </ul>
+        <hr>
+        <ul>
+            <li ng-repeat="ninja in ninjas" ng-show="!ninja.available">{{ninja.name}}</li>
+        </ul>
+        <hr>
+        <ul>
+            <li ng-repeat="ninja in ninjas" ng-hide="ninja.available">{{ninja.name}}</li>
+        </ul>
+    </div>
+</body>
+
+</html>
