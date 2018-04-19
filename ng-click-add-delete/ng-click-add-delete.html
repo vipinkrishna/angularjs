@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Document</title>
+    <style>
+        body {
+            font-family: 'verdana';
+        }
+
+        span {
+            float: right;
+            color: red;
+            width: 25px;
+            height: 25px;
+            text-align: center;
+            margin-right: 10px;
+        }
+
+        span:hover {
+            cursor: pointer;
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+        }
+
+        li {
+            border-top: 1px solid silver;
+            width: 100%;
+            /* overflow: hidden; */
+            list-style-type: none;
+        }
+
+        li:last-child {
+            border-bottom: 1px solid silver;
+        }
+
+        h3 {
+            margin-left: 5px;
+        }
+
+        button {
+            margin-left: 45px;
+            padding: 5px;
+        }
+
+        .container {
+            overflow: auto;
+            /* border: 1px solid silver; */
+            width: 50%;
+            height: 350px;
+        }
+
+        .add {
+            /* border: 1px solid silver; */
+            width: 50%;
+            text-align: center;
+            height: 100px;
+            /* position: relative; */
+        }
+
+        input[type=text] {
+            padding: 5px;
+        }
+    </style>
+    <script src='./angular.min.js'></script>
+    <script>
+        var mymodule = angular.module("myapp", []);
+
+        mymodule.controller("mycontroller", function ($scope) {
+            $scope.shopping = [
+                { item: 'coconut', price: 50 },
+                { item: 'pepper', price: 10 },
+                { item: 'chilli', price: 80 },
+                { item: 'carrot', price: 20 }
+            ];
+
+            $scope.deletefn = function (order) {
+                var index = $scope.shopping.indexOf(order);
+                $scope.shopping.splice(index, 1);
+            }
+
+            $scope.addfn = function (item, price) {
+                if (/\d+/.test(price) && item.trim() != "")
+                    $scope.shopping.push({ item, price });
+                    $scope.item = $scope.price = "";
+                    document.getElementById('item').focus();
+            }
+        });
+
+    </script>
+</head>
+
+<body ng-app="myapp">
+    <div ng-controller="mycontroller">
+        <div class='container'>
+            <div style="display:table; height: 50px;">
+                <div style="display:table-cell; vertical-align: middle;">
+                    <button ng-click="field='item'">Order by Item</button>
+                    <button ng-click="field='price'">Order by Price</button>
+                </div>
+            </div>
+            <ul>
+                <li ng-repeat="order in shopping | orderBy:field">
+                    <h3>{{order.item}} - {{order.price | currency:'Rs.'}}
+                        <span ng-click="deletefn(order)">x</span>
+                    </h3>
+                </li>
+            </ul>
+        </div>
+        <div class="add" style="display: table;">
+            <div style="display: table-cell; vertical-align: middle;">
+                <input id="item" ng-model="item" type="text" placeholder="Item" autofocus>
+                <input id="price" ng-model="price" type="text" placeholder="Price">
+                <button ng-click="addfn(item, price)" style="width: 75px;">Add</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
