@@ -1,0 +1,60 @@
+<style>
+        body {
+            font-family: 'verdana';
+        }
+
+        span {
+            float: right;
+            color: red;
+            width: 25px;
+            height: 25px;
+            text-align: center;
+            margin-right: 10px;
+        }
+
+        span:hover {
+            cursor: pointer;
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+        }
+
+        li {
+            border-top: 1px solid silver;
+            width: 100%;
+            /* overflow: hidden; */
+            list-style-type: none;
+        }
+
+        li:last-child {
+            border-bottom: 1px solid silver;
+        }
+
+        h3 {
+            margin-left: 5px;
+        }
+
+        button {
+            margin-left: 45px;
+            padding: 5px;
+        }
+
+        .container {
+            overflow: auto;
+            /* border: 1px solid silver; */
+            width: 50%;
+            height: 350px;
+        }
+
+        .add {
+            /* border: 1px solid silver; */
+            width: 50%;
+            text-align: center;
+            height: 100px;
+            /* position: relative; */
+        }
+
+        input[type=text] {
+            padding: 5px;
+        }
+    </style>
