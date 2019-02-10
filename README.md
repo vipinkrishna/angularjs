@@ -1,5 +1,5 @@
-# ANGULARJS BASICS!
-Basic AngularJS codes for reference by:
+# ANGULARJS
+## AngularJS codes for reference by:
 
-https://github.com/vipinkrishna (Whatsapp: +918943547260)
-vipinkrishna.in@gmail.com
+## https://github.com/vipinkrishna (Whatsapp: +917907450532)
+## vipinkrishna.in@gmail.com
